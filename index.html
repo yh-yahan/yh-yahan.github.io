@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+<body class="bg-stone-50 text-stone-800 dark:bg-zinc-950 dark:text-zinc-300 antialiased min-h-screen transition-colors duration-200">
+
+  <div class="max-w-5xl mx-auto px-6 py-10 lg:py-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
+
+    <aside class="lg:w-48 flex-shrink-0 lg:sticky lg:top-16 lg:self-start">
+      <div class="mb-8 flex items-start justify-between lg:block">
+        <div>
+          <a href="/" class="text-lg font-semibold tracking-tight text-stone-900 dark:text-zinc-100">yh-yahan</a>
+          <p class="text-sm text-stone-500 dark:text-zinc-500 mt-1">projects & writeups</p>
+        </div>
+
+        <button id="theme-toggle" class="lg:mt-6 p-2 rounded-md text-stone-500 hover:text-stone-800 dark:text-zinc-500 dark:hover:text-zinc-200 hover:bg-stone-200 dark:hover:bg-zinc-800 transition" aria-label="Toggle theme">
+          <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.364-6.364l-1.06 1.06M7.696 16.304l-1.06 1.06m12.728 0l-1.06-1.06M7.696 7.696l-1.06-1.06M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5z"/>
+          </svg>
+          <svg id="icon-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-row lg:flex-col gap-4 lg:gap-2 text-sm">
+        <a href="/" class="text-stone-900 dark:text-zinc-100 font-medium">Home</a>
+        <a href="/projects" class="text-stone-500 dark:text-zinc-500 hover:text-stone-900 dark:hover:text-zinc-200 transition">Projects</a>
+        <a href="/writeups" class="text-stone-500 dark:text-zinc-500 hover:text-stone-900 dark:hover:text-zinc-200 transition">Writeups</a>
+      </nav>
+
+      <div class="hidden lg:block mt-12 pt-8 border-t border-stone-200 dark:border-zinc-800 text-sm text-stone-500 dark:text-zinc-500 space-y-2">
+        <a href="https://github.com/yh-yahan" class="block hover:text-stone-800 dark:hover:text-zinc-300 transition">GitHub</a>
+        <a href="mailto:yahanyang46@outlook.com" class="block hover:text-stone-800 dark:hover:text-zinc-300 transition">Email</a>
+      </div>
+    </aside>
+
+    <main class="flex-1 min-w-0">
+      <section class="mb-14">
+        <h1 class="text-2xl font-semibold text-stone-900 dark:text-zinc-100 tracking-tight mb-4">
+          Software projects, CTF solves, and writeups.
+        </h1>
+        <p class="text-stone-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+          This site is a simple collection of things I've built and challenges I've worked through.
+        </p>
+      </section>
+
+      <section class="mb-14">
+        <div class="flex items-baseline justify-between mb-5">
+          <h2 class="text-sm font-semibold text-stone-900 dark:text-zinc-200 uppercase tracking-wider">Projects</h2>
+          <a href="/projects" class="text-sm text-stone-500 dark:text-zinc-500 hover:text-stone-800 dark:hover:text-zinc-300 transition">all →</a>
+        </div>
+
+        <ul class="space-y-6">
+            <li>
+            <a href="https://github.com/yh-yahan/esc-printer-lab" class="group block">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="font-medium text-stone-900 dark:text-zinc-100 group-hover:underline underline-offset-2">esc-printer-lab</h3>
+                <span class="text-xs text-stone-400 dark:text-zinc-600">2026</span>
+              </div>
+              <p class="text-sm text-stone-600 dark:text-zinc-400 mt-1 leading-relaxed">
+                esc/pos thermal printer emulator
+              </p>
+              <div class="mt-2 flex gap-2 text-xs text-stone-500 dark:text-zinc-500">
+                <span>Rust</span>
+                <span>·</span>
+                <span>egui</span>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/yh-yahan/merit-points-management-system" class="group block">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="font-medium text-stone-900 dark:text-zinc-100 group-hover:underline underline-offset-2">merit-points-management-system</h3>
+                <span class="text-xs text-stone-400 dark:text-zinc-600">2025</span>
+              </div>
+              <p class="text-sm text-stone-600 dark:text-zinc-400 mt-1 leading-relaxed">
+                A web app designed for school that uses merit/demerit point system to track and manage student's merit points.
+              </p>
+              <div class="mt-2 flex gap-2 text-xs text-stone-500 dark:text-zinc-500">
+                <span>React</span>
+                <span>·</span>
+                <span>Laravel</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="flex items-baseline justify-between mb-5">
+          <h2 class="text-sm font-semibold text-stone-900 dark:text-zinc-200 uppercase tracking-wider">Recent Writeups</h2>
+          <a href="/writeups" class="text-sm text-stone-500 dark:text-zinc-500 hover:text-stone-800 dark:hover:text-zinc-300 transition">all →</a>
+        </div>
+
+        <ul class="divide-y divide-stone-200 dark:divide-zinc-800 border-t border-b border-stone-200 dark:border-zinc-800">
+          <li>
+            <a href="/writeups/diver26" class="flex items-center justify-between py-3.5 group">
+              <div class="min-w-0">
+                <span class="text-stone-900 dark:text-zinc-200 group-hover:underline underline-offset-2">DIVER OSINT CTF 2026</span>
+                <!-- <span class="text-stone-400 dark:text-zinc-600 text-sm ml-2"></span> -->
+              </div>
+              <span class="text-xs text-stone-500 dark:text-zinc-500 ml-4 flex-shrink-0">OSINT</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle')
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark')
+      localStorage.theme = isDark ? 'dark' : 'light'
+    })
+  </script>
+</body>
+</html>

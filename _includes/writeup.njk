@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <title>DIVER OSINT CTF 2026 — yh-yahan</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+<body class="bg-stone-50 text-stone-800 dark:bg-zinc-950 dark:text-zinc-300 antialiased min-h-screen transition-colors duration-200">
+
+  <div class="max-w-5xl mx-auto px-6 py-10 lg:py-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
+
+    <aside class="lg:w-48 flex-shrink-0 lg:sticky lg:top-16 lg:self-start">
+      <div class="mb-8 flex items-start justify-between lg:block">
+        <div>
+          <a href="/" class="text-lg font-semibold tracking-tight text-stone-900 dark:text-zinc-100">yh-yahan</a>
+          <p class="text-sm text-stone-500 dark:text-zinc-500 mt-1">projects & writeups</p>
+        </div>
+
+        <button id="theme-toggle" class="lg:mt-6 p-2 rounded-md text-stone-500 hover:text-stone-800 dark:text-zinc-500 dark:hover:text-zinc-200 hover:bg-stone-200 dark:hover:bg-zinc-800 transition" aria-label="Toggle theme">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.364-6.364l-1.06 1.06M7.696 16.304l-1.06 1.06m12.728 0l-1.06-1.06M7.696 7.696l-1.06-1.06M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5z"/>
+          </svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-row lg:flex-col gap-4 lg:gap-2 text-sm">
+        <a href="/" class="text-stone-500 dark:text-zinc-500 hover:text-stone-900 dark:hover:text-zinc-200 transition">Home</a>
+        <a href="/projects" class="text-stone-500 dark:text-zinc-500 hover:text-stone-900 dark:hover:text-zinc-200 transition">Projects</a>
+        <a href="/writeups" class="text-stone-900 dark:text-zinc-100 font-medium">Writeups</a>
+      </nav>
+
+      <div class="hidden lg:block mt-12 pt-8 border-t border-stone-200 dark:border-zinc-800 text-sm text-stone-500 dark:text-zinc-500 space-y-2">
+        <a href="https://github.com/yh-yahan" class="block hover:text-stone-800 dark:hover:text-zinc-300 transition">GitHub</a>
+        <a href="mailto:yahanyang46@outlook.com" class="block hover:text-stone-800 dark:hover:text-zinc-300 transition">Email</a>
+      </div>
+    </aside>
+
+    <main class="flex-1 min-w-0">
+
+        <a href="/writeups/"
+           class="text-sm text-stone-500 hover:text-stone-900 dark:text-zinc-500 dark:hover:text-zinc-300">
+            ← Writeups
+        </a>
+
+        <header class="mt-4 mb-10">
+            <h1 class="text-3xl font-semibold tracking-tight text-stone-900 dark:text-zinc-100">
+                {{ title }}
+            </h1>
+
+            {% if subtitle %}
+            <p class="mt-2 text-sm text-stone-500 dark:text-zinc-500">
+                {{ subtitle }}
+            </p>
+            {% endif %}
+
+            <div class="mt-2 text-sm text-stone-500 dark:text-zinc-500">
+                {{ date }}
+            </div>
+        </header>
+
+        <article class="prose prose-stone dark:prose-invert max-w-none">
+            {{ content | safe }}
+        </article>
+    </main>
+
+  </div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle')
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark')
+      localStorage.theme = isDark ? 'dark' : 'light'
+    })
+  </script>
+</body>
+</html>
