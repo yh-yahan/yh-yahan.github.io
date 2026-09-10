@@ -41,7 +41,7 @@
           </a>
 
           <p class="text-sm text-stone-500 dark:text-zinc-500 mt-1">
-            projects & thoughts
+            projects & writeups
           </p>
         </div>
 
@@ -118,7 +118,7 @@
           href="/blogs"
           class="text-stone-900 dark:text-zinc-100 font-medium"
         >
-          Blog
+          Blogs
         </a>
 
       </nav>
@@ -183,7 +183,7 @@
           class="mt-4 flex items-center gap-3
                  text-sm text-stone-500 dark:text-zinc-500"
         >
-          {{ date }}
+          {{ date | readableDate }}
 
           {% if reading_time %}
           <span>·</span>

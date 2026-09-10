@@ -2,7 +2,7 @@
 layout: blog.njk
 title: "Bootloader from zero - Part 1: Hello World"
 subtitle: 
-date: 2026-8-20 17:57:00
+date: 2026-08-20
 ---
 
 ## Introduction
