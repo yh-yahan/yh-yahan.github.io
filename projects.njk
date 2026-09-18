@@ -1,0 +1,32 @@
+---
+layout: layout.njk
+section: projects
+title: Projects | yh-yahan
+permalink: /projects/
+---
+<section class="mb-10">
+  <h1 class="text-2xl font-semibold text-stone-900 dark:text-zinc-100 tracking-tight mb-2">Projects</h1>
+  <p class="text-stone-600 dark:text-zinc-400 text-sm">Things I’ve built.</p>
+</section>
+
+<ul class="space-y-10">
+  {% for project in projects %}
+  <li>
+    <a href="{{ project.url }}" class="group block">
+      <div class="flex items-baseline justify-between gap-4">
+        <h2 class="text-lg font-medium text-stone-900 dark:text-zinc-100 group-hover:underline underline-offset-2">{{ project.title }}</h2>
+        <span class="text-xs text-stone-400 dark:text-zinc-600">{{ project.year }}</span>
+      </div>
+      <p class="text-sm text-stone-600 dark:text-zinc-400 mt-2 leading-relaxed max-w-xl">{{ project.description }}</p>
+      {% if project.stack and project.stack.length %}
+      <div class="mt-3 flex gap-2 text-xs text-stone-500 dark:text-zinc-500">
+        {% for item in project.stack %}
+        {% if not loop.first %}<span>·</span>{% endif %}
+        <span>{{ item }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

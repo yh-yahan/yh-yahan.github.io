@@ -1,0 +1,24 @@
+---
+layout: layout.njk
+section: blogs
+title: Blogs | yh-yahan
+permalink: /blogs/
+---
+<section class="mb-10">
+  <h1 class="text-2xl font-semibold text-stone-900 dark:text-zinc-100 tracking-tight mb-2">Blogs</h1>
+</section>
+
+<ul class="divide-y divide-stone-200 dark:divide-zinc-800 border-t border-b border-stone-200 dark:border-zinc-800">
+  {% for post in collections.blogs %}
+  <li>
+    <a href="{{ post.url }}" class="flex items-center justify-between py-3.5 group">
+      <div class="min-w-0">
+        <span class="text-stone-900 dark:text-zinc-200 group-hover:underline underline-offset-2">{{ post.data.title }}</span>
+      </div>
+      {% if post.data.category %}
+      <span class="text-xs text-stone-500 dark:text-zinc-500 ml-4 flex-shrink-0">{{ post.data.category }}</span>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

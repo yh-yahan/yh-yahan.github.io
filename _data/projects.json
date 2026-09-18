@@ -1,0 +1,16 @@
+[
+  {
+    "title": "esc-printer-lab",
+    "year": "2026",
+    "url": "https://github.com/yh-yahan/esc-printer-lab",
+    "description": "ESC/POS thermal printer emulator. Built with Rust and egui.",
+    "stack": ["Rust", "egui"]
+  },
+  {
+    "title": "merit-points-management-system",
+    "year": "2025",
+    "url": "https://github.com/yh-yahan/merit-points-management-system",
+    "description": "A web app designed for school that uses a merit/demerit point system to track and manage students’ merit points.",
+    "stack": ["React", "Laravel"]
+  }
+]

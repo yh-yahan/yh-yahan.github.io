@@ -1,0 +1,87 @@
+---
+layout: layout.njk
+section: home
+title: yh-yahan
+permalink: /
+---
+<section class="mb-14">
+  <h1 class="text-2xl font-semibold text-stone-900 dark:text-zinc-100 tracking-tight mb-4">
+    Projects, writeups, and blogs.
+  </h1>
+  <p class="text-stone-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+    This site is a simple collection of things I've built and things I'd like to share.
+  </p>
+</section>
+
+<section class="mb-14">
+  <div class="flex items-baseline justify-between mb-5">
+    <h2 class="text-sm font-semibold text-stone-900 dark:text-zinc-200 uppercase tracking-wider">Projects</h2>
+    <a href="/projects/" class="text-sm text-stone-500 dark:text-zinc-500 hover:text-stone-800 dark:hover:text-zinc-300 transition">all →</a>
+  </div>
+
+  <ul class="space-y-6">
+    {% for project in projects %}
+    <li>
+      <a href="{{ project.url }}" class="group block">
+        <div class="flex items-baseline justify-between gap-4">
+          <h3 class="font-medium text-stone-900 dark:text-zinc-100 group-hover:underline underline-offset-2">{{ project.title }}</h3>
+          <span class="text-xs text-stone-400 dark:text-zinc-600">{{ project.year }}</span>
+        </div>
+        <p class="text-sm text-stone-600 dark:text-zinc-400 mt-1 leading-relaxed">{{ project.description }}</p>
+        {% if project.stack and project.stack.length %}
+        <div class="mt-2 flex gap-2 text-xs text-stone-500 dark:text-zinc-500">
+          {% for item in project.stack %}
+          {% if not loop.first %}<span>·</span>{% endif %}
+          <span>{{ item }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="mb-14">
+  <div class="flex items-baseline justify-between mb-5">
+    <h2 class="text-sm font-semibold text-stone-900 dark:text-zinc-200 uppercase tracking-wider">Recent Writeups</h2>
+    <a href="/writeups/" class="text-sm text-stone-500 dark:text-zinc-500 hover:text-stone-800 dark:hover:text-zinc-300 transition">all →</a>
+  </div>
+
+  <ul class="divide-y divide-stone-200 dark:divide-zinc-800 border-t border-b border-stone-200 dark:border-zinc-800">
+    {% for post in collections.writeups.slice(0, 3) %}
+    <li>
+      <a href="{{ post.url }}" class="flex items-center justify-between py-3.5 group">
+        <div class="min-w-0">
+          <span class="text-stone-900 dark:text-zinc-200 group-hover:underline underline-offset-2">{{ post.data.title }}</span>
+        </div>
+        {% if post.data.category %}
+        <span class="text-xs text-stone-500 dark:text-zinc-500 ml-4 flex-shrink-0">{{ post.data.category }}</span>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <div class="flex items-baseline justify-between mb-5">
+    <h2 class="text-sm font-semibold text-stone-900 dark:text-zinc-200 uppercase tracking-wider">Recent Blogs</h2>
+    <a href="/blogs/" class="text-sm text-stone-500 dark:text-zinc-500 hover:text-stone-800 dark:hover:text-zinc-300 transition">all →</a>
+  </div>
+
+  <ul class="divide-y divide-stone-200 dark:divide-zinc-800 border-t border-b border-stone-200 dark:border-zinc-800">
+    {% for post in collections.blogs.slice(0, 3) %}
+    <li>
+      <a href="{{ post.url }}" class="flex items-center justify-between py-3.5 group">
+        <div class="min-w-0">
+          <span class="text-stone-900 dark:text-zinc-200 group-hover:underline underline-offset-2">{{ post.data.title }}</span>
+        </div>
+        {% if post.data.category %}
+        <span class="text-xs text-stone-500 dark:text-zinc-500 ml-4 flex-shrink-0">{{ post.data.category }}</span>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
